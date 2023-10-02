@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <style>
+    input[type=button] {
+      background-color: red;
+      color: white;
+      border-radius: 30px;
+      width: 100%;
+      height: 40px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .noselect {
+      -webkit-touch-callout: none;
+      /* iOS Safari */
+      -webkit-user-select: none;
+      /* Safari */
+      -khtml-user-select: none;
+      /* Konqueror HTML */
+      -moz-user-select: none;
+      /* Firefox */
+      -ms-user-select: none;
+      /* Internet Explorer/Edge */
+      user-select: none;
+      /* Non-prefixed version, currently
+                                      supported by Chrome and Opera */
+      text-align: center;
+      background-color: white;
+    }
+
+    .slidecontainer {
+      width: 100%;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 20px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    .slider:hover {
+      opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: red;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: red;
+      cursor: pointer;
+    }
+
+    .site {
+      background-color: rgb(255, 0, 0);
+      color: rgb(0, 0, 0);
+      width: 200px;
+      border-radius: 10px;
+      margin: auto;
+      box-shadow: 10px 10px 10px black;
+
+    }
+
+    .music {
+      font-size: 20px;
+      height: 40px;
+      padding: 6px;
+      border-radius: 20px;
+      background-color: rgb(255, 0, 0);
+      color: white;
+      border-color: rgb(235, 235, 235);
+    }
+
+    .comandos {
+      width: 200px;
+      
+    }
+    :root{
+      --cor-primaria-avançar: red;
+      --cor-secundaria-avançar: rgb(255, 255, 255);
+
+    }
+    .avançar{
+      background-color: var(--cor-primaria-avançar);
+      outline: none;
+      color: var(--cor-secundaria-avançar);
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+
+</head>
+
+<body class="noselect">
+
+  <h1 style="color: teal;text-align:center;">Robos IFMT</h1>
+
+  <table id="mainTable" style="width:400px;margin:auto;table-layout:fixed" CELLSPACING=10 align="left">
+    <tr />
+    <tr />
+    <tr>
+      <td style="text-align:left;font-size:25px"><b>Pe1:</b></td>
+      <td colspan=2>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="180" value="90" class="slider" id="Pe1"
+            oninput='sendButtonInput("Pe1",value)'>
+        </div>
+      </td>
+    </tr>
+    <tr />
+    <tr />
+    <tr>
+      <td style="text-align:left;font-size:25px"><b>Pe2:</b></td>
+      <td colspan=2>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="180" value="90" class="slider" id="Pe2"
+            oninput='sendButtonInput("Pe2",value)'>
+        </div>
+      </td>
+    </tr>
+    <tr />
+    <tr />
+    <tr>
+      <td style="text-align:left;font-size:25px"><b>Pe3:</b></td>
+      <td colspan=2>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="180" value="90" class="slider" id="Pe3"
+            oninput='sendButtonInput("Pe3",value)'>
+        </div>
+      </td>
+    </tr>
+    <tr />
+    <tr />
+    <tr>
+      <td style="text-align:left;font-size:25px"><b>Pe4:</b></td>
+      <td colspan=2>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="180" value="90" class="slider" id="Pe4"
+            oninput='sendButtonInput("Pe4",value)'>
+        </div>
+      </td>
+    </tr>
+    <tr />
+    <tr />
+    <tr>
+      <td style="text-align:left;font-size:25px"><b>LED:</b></td>
+      <td><input type="button" id="LED" value="OFF" ontouchend='onclickButton(this)'></td>
+      <td></td>
+    </tr>
+
+    <tr />
+    <tr />
+    <tr />
+    <tr />
+    <tr>
+      <td style="text-align:left;font-size:25px"><b>P1:</b></td>
+      <td colspan=2>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="180" value="90" class="slider" id="P1" oninput='sendButtonInput("P1",value)'>
+        </div>
+      </td>
+    </tr>
+    <tr />
+    <tr />
+    <tr>
+      <td style="text-align:left;font-size:25px"><b>P2:</b></td>
+      <td colspan=2>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="180" value="90" class="slider" id="P2" oninput='sendButtonInput("P2",value)'>
+        </div>
+      </td>
+    </tr>
+    <tr />
+    <tr />
+    <tr>
+      <td style="text-align:left;font-size:25px"><b>P3:</b></td>
+      <td colspan=2>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="180" value="90" class="slider" id="P3" oninput='sendButtonInput("P3",value)'>
+        </div>
+      </td>
+    </tr>
+    <tr />
+    <tr />
+    <tr>
+      <td style="text-align:left;font-size:25px"><b>P4:</b></td>
+      <td colspan=2>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="180" value="90" class="slider" id="P4" oninput='sendButtonInput("P4",value)'>
+        </div>
+        
+      </td>
+      
+      
+    </tr>
+    <tr></tr><tr></tr><tr></tr>
+    <tr>
+     
+      <td>
+        <a href="file:///C:/Users/mathe/OneDrive/Documentos/JS/rb.html" class="avançar">VOLTAR</a>
+      </td>
+    </tr>
+    <tr />
+    <tr />
+   
+        </select>
+      </td>
+      <td></td>
+    </tr>
+    <tr></tr>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    
+  </table>
+<br><br>
+
+
+  <script>
+    var webSocketRobotArmInputUrl = "ws:\/\/" + window.location.hostname + "/RobotArmInput";
+    var websocketRobotArmInput;
+
+    function initRobotArmInputWebSocket() {
+      websocketRobotArmInput = new WebSocket(webSocketRobotArmInputUrl);
+      websocketRobotArmInput.onopen = function (event) { };
+      websocketRobotArmInput.onclose = function (event) { setTimeout(initRobotArmInputWebSocket, 2000); };
+      websocketRobotArmInput.onmessage = function (event) {
+        var keyValue = event.data.split(",");
+        var button = document.getElementById(keyValue[0]);
+        button.value = keyValue[1];
+        if (button.id == "mp3" || button.id == "LED" || button.id == "LADO E." || bunton.id == "LADO D." || button.id == "FRENTE" || button.id =="TRAS") {
+
+          enableDisableButtonsSliders(button);
+        }
+      };
+    }
+
+    function sendButtonInput(key, value) {
+      var data = key + "," + value;
+      websocketRobotArmInput.send(data);
+    }
+
+    function onclickButton(button) {
+      sendButtonInput(button.id, value)  ? 1 : 0 ;
+      var value = (button.value == "ON") ? "OFF" : "ON";
+      var value2 = (button.value == "LADO E.")  ? "lado e." : "LADO E.";
+      var value3 = (button.value == "LADO D.")  ? "lado d." : "LADO D.";
+      var value4 = (button.value == "FRENTE")  ? "frente" : "FRENTE";
+      var value5 = (button.value == "TRAS")  ? "tras" : "TRAS";
+      
+      enableDisableButtonsSliders(button);
+    }
+
+    function enableDisableButtonsSliders(button) {
+    }
+
+    window.onload = initRobotArmInputWebSocket;
+    document.getElementById("mainTable").addEventListener("touchend", function (event) {
+      event.preventDefault()
+    });
+
+    function atualizou() {
+
+      var select = document.getElementById('mp3')
+      var opicao = select.options[select.selectedIndex]
+
+      var valor = opicao.value
+      let text = opicao.text
+
+      if (text == "OPCAO1") {
+
+
+        alert("tocar música 1")
+
+      }
+
+      if (text == "OPCAO2") {
+        alert('tocar música 2')
+      }
+
+      if (text == "OPCAO3") {
+        alert('tocar música 3')
+      }
+
+    }
+  </script>
+</body>
+
+</html>
